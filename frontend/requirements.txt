@@ -1,0 +1,11 @@
+pip >= 25.0.0
+
+pylint==4.0.2
+pytest==9.0.0
+pytest-cov==7.0.0
+black==25.11.0
+
+#ipython==8.17.2
+
+reflex==0.8.19
+requests==2.32.5
