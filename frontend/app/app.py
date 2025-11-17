@@ -11,7 +11,7 @@ def home() -> rx.Component:
     message = AppState.messages_list
 
     return rx.container(
-        rx.heading("Welcome to the Home Page", size="9"),
+        rx.heading("k3s microservice test", size="9"),
         rx.foreach(
             message,
             lambda msg: rx.box(rx.text(msg)),
