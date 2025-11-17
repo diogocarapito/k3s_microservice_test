@@ -1,9 +1,9 @@
 backend:
-  image: backend:local
+  image: ghcr.io/diogocarapito/backend:latest
   replicas: 1
 
 frontend:
-  image: frontend:local
+  image: ghcr.io/diogocarapito/frontend:latest
   replicas: 1
 
 persistentVolume:

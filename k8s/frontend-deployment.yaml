@@ -14,9 +14,11 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/<your-github-username>/frontend:latest
+        image: ghcr.io/diogocarapito/frontend:latest
         ports:
         - containerPort: 8000
+      imagePullSecrets:
+      - name: ghcr-secret
 ---
 apiVersion: v1
 kind: Service
