@@ -18,10 +18,10 @@ def create_api_app() -> FastAPI:
     conn.commit()
     conn.close()
 
-    app = FastAPI()
+    api_app = FastAPI()  # Renamed from `app` to `api_app`
 
     # Allow frontend requests
-    app.add_middleware(
+    api_app.add_middleware(
         CORSMiddleware,
         allow_origins=["http://localhost:3000"],  # React dev server
         allow_credentials=True,
@@ -33,7 +33,7 @@ def create_api_app() -> FastAPI:
     class Message(BaseModel):
         text: str
 
-    @app.get("/api/messages")
+    @api_app.get("/api/messages")
     def get_messages():
         conn = sqlite3.connect(DB_PATH)
         cur = conn.cursor()
@@ -42,7 +42,7 @@ def create_api_app() -> FastAPI:
         conn.close()
         return rows
 
-    @app.post("/api/messages")
+    @api_app.post("/api/messages")
     def add_message(message: Message):
         conn = sqlite3.connect(DB_PATH)
         cur = conn.cursor()
@@ -51,7 +51,7 @@ def create_api_app() -> FastAPI:
         conn.close()
         return {"status": "ok"}
 
-    return app
+    return api_app
 
 
 app = create_api_app()

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: <your-dockerhub-username>/backend:latest
+        image: ghcr.io/<your-github-username>/backend:latest
         ports:
         - containerPort: 8001
 ---

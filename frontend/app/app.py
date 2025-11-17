@@ -7,9 +7,9 @@ from rxconfig import config
 
 # Define the app layout
 def home() -> rx.Component:
-    
+
     message = AppState.messages_list
-    
+
     return rx.container(
         rx.heading("Welcome to the Home Page", size="9"),
         rx.foreach(
@@ -31,7 +31,6 @@ def home() -> rx.Component:
             color_scheme="blue",
             on_click=AppState.add_button_click,
         ),
-        
     )
 
 

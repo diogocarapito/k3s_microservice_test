@@ -1,0 +1,11 @@
+backend:
+  image: backend:local
+  replicas: 1
+
+frontend:
+  image: frontend:local
+  replicas: 1
+
+persistentVolume:
+  path: /data/sqlite
+  size: 1Gi
