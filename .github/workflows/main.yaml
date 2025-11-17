@@ -41,8 +41,8 @@ jobs:
     - name: Build and Push Docker Image
       working-directory: ./backend
       run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/backend:latest .
-        docker push ghcr.io/${{ github.repository_owner }}/backend:latest
+        docker build -t ghcr.io/${{ github.repository_owner | toLower }}/backend:latest .
+        docker push ghcr.io/${{ github.repository_owner | toLower }}/backend:latest
 
   frontend:
     name: Frontend Build, Test, and Push to GHCR
@@ -74,5 +74,5 @@ jobs:
     - name: Build and Push Docker Image
       working-directory: ./frontend
       run: |
-        docker build -t ghcr.io/${{ github.repository_owner }}/frontend:latest .
-        docker push ghcr.io/${{ github.repository_owner }}/frontend:latest
+        docker build -t ghcr.io/${{ github.repository_owner | toLower }}/frontend:latest .
+        docker push ghcr.io/${{ github.repository_owner | toLower }}/frontend:latest
