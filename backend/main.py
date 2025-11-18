@@ -18,7 +18,7 @@ def create_api_app() -> FastAPI:
     conn.commit()
     conn.close()
 
-    api_app = FastAPI()  # Renamed from `app` to `api_app`
+    api_app = FastAPI()
 
     # Allow frontend requests
     api_app.add_middleware(
