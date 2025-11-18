@@ -1,6 +1,6 @@
-from app.app import home
+from app.app import app
 
 
 def test_home_page():
-    component = home()
+    component = app()
     assert component is not None
