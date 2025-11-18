@@ -31,7 +31,7 @@ def main() -> rx.Component:
             color_scheme="blue",
             on_click=AppState.add_button_click,
         ),
-        rx.text("Powered by Reflex")
+        rx.text("Powered by Reflex"),
     )
 
 
