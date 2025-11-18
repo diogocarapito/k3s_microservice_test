@@ -20,4 +20,4 @@ RUN pip install --no-cache-dir --upgrade pip && \
 EXPOSE 3000
 
 # Command to run the Reflex app
-CMD ["reflex", "run", "--port", "80", "--env", "production"]
+CMD ["reflex", "run", "--port", "80", "--env", "prod"]
