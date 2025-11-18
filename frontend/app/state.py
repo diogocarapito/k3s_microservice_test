@@ -22,6 +22,7 @@ class AppState(State):
             )
             self.message_input = ""
             self.load_messages()
+            print("Message added successfully")
 
     def load_messages(self):
         try:
@@ -33,8 +34,10 @@ class AppState(State):
             if response.status_code == 200:
                 messages = response.json()
                 self.messages_list = [f"{msg[0]}: {msg[1]}" for msg in messages]
+                print("Messages loaded successfully")
             else:
                 self.messages_list = ["Failed to load messages"]
+                print(f"Error: Received status code {response.status_code}")
         except requests.exceptions.RequestException as e:
             self.messages_list = [f"Error: {str(e)}"]
 
