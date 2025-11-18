@@ -23,7 +23,7 @@ def create_api_app() -> FastAPI:
     # Allow frontend requests
     api_app.add_middleware(
         CORSMiddleware,
-        allow_origins=["http://localhost:3000", "https://test.mgfhub.com"],  # React dev server
+        allow_origins=["http://localhost:3000", "https://test.mgfhub.com", "http://frontend-svc:3000"],  # React dev server
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
