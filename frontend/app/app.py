@@ -39,4 +39,7 @@ app = rx.App()
 # App config
 app.config = config
 
+# Disable the Reflex footer
+app.config.disable_footer = True
+
 app.add_page(main, route="/", title="Home")
