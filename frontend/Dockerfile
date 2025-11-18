@@ -1,17 +1,23 @@
 FROM python:3.13-alpine
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Install system dependencies using apk (Alpine package manager)
+RUN apk add --no-cache \
+    build-base \
+    curl \
+    bash  # Install bash
 
-# Copy the application code
-COPY . .
+# Copy the project files into the container
+COPY . /app
+
+# Install Python dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Expose the Reflex default port
-EXPOSE 8000
+EXPOSE 3000
 
 # Command to run the Reflex app
-CMD ["python", "-m", "app.main"]
+CMD ["reflex", "run", "--env", "prod"]

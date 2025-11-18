@@ -6,7 +6,7 @@ from rxconfig import config
 
 
 # Define the app layout
-def home() -> rx.Component:
+def main() -> rx.Component:
 
     message = AppState.messages_list
 
@@ -39,4 +39,4 @@ app = rx.App()
 # App config
 app.config = config
 
-app.add_page(home, route="/", title="Home")
+app.add_page(main, route="/", title="Home")
