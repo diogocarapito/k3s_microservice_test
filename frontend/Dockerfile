@@ -26,7 +26,7 @@ ENV BACKEND_URL=http://backend-svc:8001
 EXPOSE 8000
 
 # Start Reflex in production mode (serves frontend + websocket)
-CMD ["reflex", "run", "--env", "prod", "--port", "8000"]
+CMD ["reflex", "run", "--env", "prod"]
 
 # # Expose the Reflex default port
 # EXPOSE 3000
