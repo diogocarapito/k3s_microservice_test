@@ -40,6 +40,13 @@ def main() -> rx.Component:
             on_click=MessageState.test_backend_api,
         ),
         rx.text(MessageState.response_code),
+        # basic button that show a message when clicked
+        rx.button(
+            "Click Me",
+            color_scheme="purple",
+            on_click=MessageState.show_message,
+        ),
+        rx.text(MessageState.display_message),
     )
 
 

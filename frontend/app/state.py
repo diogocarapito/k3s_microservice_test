@@ -2,6 +2,8 @@ import os
 import requests
 from reflex.state import State
 
+# import reflex as rx
+
 
 # Fetch the backend URL from the environment variable, with a default fallback
 BACKEND_URL = os.getenv("BACKEND_URL", "http://backend-svc:8001")
@@ -12,6 +14,7 @@ class MessageState(State):
     message_input: str = ""
     messages_list: list = []
     response_code = "hello"
+    display_message: str = "Not Clicked Yet"
 
     def add_message(self):
         """Send a POST request to the backend to add a message."""
@@ -64,3 +67,8 @@ class MessageState(State):
 
         except requests.exceptions.RequestException as e:
             self.response_code = f"error_exception: {e}"
+
+    def show_message(self):
+        # def show_message(self, event: rx.event.PointerEventInfo):
+        """Set the display message when the button is clicked."""
+        self.display_message = "Button Clicked!"
