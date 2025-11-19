@@ -23,13 +23,13 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # ENV BACKEND_URL=http://backend-svc:8001
 
 # Expose port 8000 for frontend + websocket
-EXPOSE 3000
+# EXPOSE 8000
 
-# Start Reflex in production mode (serves frontend + websocket)
-CMD ["reflex", "run", "--env", "prod", "--port", "8000"]
+# # Start Reflex in production mode (serves frontend + websocket)
+# CMD ["reflex", "run", "--env", "prod", "--port", "8000"]
 
 # Expose the Reflex default port
-# EXPOSE 3000
+EXPOSE 3000
 
 # Command to run the Reflex app
-# CMD ["reflex", "run", "--env", "prod"]
+CMD ["reflex", "run", "--env", "prod"]
