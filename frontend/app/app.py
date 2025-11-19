@@ -10,6 +10,9 @@ def main() -> rx.Component:
 
     message = MessageState.messages_list
 
+
+
+
     return rx.container(
         rx.heading("k3s microservice test", size="9"),
         rx.foreach(
@@ -32,6 +35,14 @@ def main() -> rx.Component:
             on_click=MessageState.add_message,
         ),
         rx.text("Powered by Reflex"),
+        # test button that calls backend API
+        rx.button(
+            "Test Backend API",
+            color_scheme="green",
+            # custom on_click that calls the backend /api/messages endpoint and prints the result
+            on_click=MessageState.test_backend_api,
+        ),
+        rx.text(MessageState.response_code),
     )
 
 
