@@ -1,4 +1,4 @@
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI  # , WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 import os
@@ -23,7 +23,11 @@ def create_api_app() -> FastAPI:
     # Allow frontend requests
     api_app.add_middleware(
         CORSMiddleware,
-        allow_origins=["http://localhost:3000", "https://test.mgfhub.com", "http://frontend-svc:3000"],  # React dev server
+        allow_origins=[
+            "http://localhost:3000",
+            "https://test.mgfhub.com",
+            "http://frontend-svc:3000",
+        ],  # React dev server
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
@@ -51,12 +55,12 @@ def create_api_app() -> FastAPI:
         conn.close()
         return {"status": "ok"}
 
-    @api_app.websocket("/_event")
-    async def websocket_endpoint(websocket: WebSocket):
-        await websocket.accept()
-        while True:
-            data = await websocket.receive_text()
-            await websocket.send_text(f"Message received: {data}")
+    # @api_app.websocket("/_event")
+    # async def websocket_endpoint(websocket: WebSocket):
+    #     await websocket.accept()
+    #     while True:
+    #         data = await websocket.receive_text()
+    #         await websocket.send_text(f"Message received: {data}")
 
     return api_app
 
