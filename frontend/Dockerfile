@@ -7,7 +7,8 @@ WORKDIR /app
 RUN apk add --no-cache \
     build-base \
     curl \
-    bash  # Install bash
+    bash  \
+    util-linux
 
 # Copy the project files into the container
 COPY . /app
