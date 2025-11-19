@@ -5,7 +5,7 @@ from reflex.state import State
 
 # Fetch the backend URL from the environment variable, with a default fallback
 BACKEND_URL = os.getenv("BACKEND_URL", "http://backend-svc:8001")
-#BACKEND_URL = os.getenv("BACKEND_URL", "http://0.0.0.0:8001")
+# BACKEND_URL = os.getenv("BACKEND_URL", "http://0.0.0.0:8001")
 
 
 class MessageState(State):
@@ -50,7 +50,7 @@ class MessageState(State):
     def on_startup(self):
         """Load messages when the app starts."""
         self.load_messages()
-        
+
     def test_backend_api(self):
         try:
             response = requests.get(f"{BACKEND_URL}/api/messages", timeout=5)
@@ -63,5 +63,4 @@ class MessageState(State):
                 self.response_code = "error"
 
         except requests.exceptions.RequestException as e:
-            self.response_code = "error_exception"
-            
+            self.response_code = f"error_exception: {e}"

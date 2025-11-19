@@ -10,9 +10,6 @@ def main() -> rx.Component:
 
     message = MessageState.messages_list
 
-
-
-
     return rx.container(
         rx.heading("k3s microservice test", size="9"),
         rx.foreach(
